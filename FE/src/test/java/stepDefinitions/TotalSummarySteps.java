@@ -24,13 +24,25 @@ public class TotalSummarySteps {
 
     @Then("^User verifies that the product quantity on Cart is shown as (\\d+)$")
     public void userVerifiesThatTheProductQuantityOnCartIsShownAs(Integer quantity) {
-        logger.info("Verifying the text on Search result page");
+        logger.info("Verifying the quantity on Cart");
         //Act
         Integer actualText = totalSummaryPage.getQuantityFromCartImage();
 
         //Assert
         Assert.assertEquals(quantity, actualText);
 
+    }
+
+    @And("^User clicks on Proceed checkout$")
+    public void userClicksOnProceedCheckout() {
+        logger.info("Clicking on Proceed");
+        totalSummaryPage.clickButtonProceedCheckout();
+    }
+
+    @And("^User clicks on Create Account$")
+    public void userClicksOnCreateAccount() throws InterruptedException {
+        logger.info("Clicking on Create Account");
+        totalSummaryPage.clickButtonCreateAccount();
     }
     //endregion
 }
